@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Post;
 use App\Thread;
+use App\Comment;
 use DB;
 
 class PostsController extends Controller
@@ -26,8 +27,9 @@ class PostsController extends Controller
         # $posts = Post::all();     <- default
        # $posts = Post::orderBy('title', 'desc')->get();
         $posts = Post::orderBy('created_at', 'desc')->paginate(10);      # with pagination
+        $comments = Comment::orderBy('created_at', 'desc')->take(10)->get();
         #$posts = DB::select('SELECT * FROM posts');        <- using sql query
-        return view('posts.index')->with('posts', $posts);
+        return view('posts.index', compact('posts', 'comments'));
     }
 
     /**
@@ -80,8 +82,9 @@ class PostsController extends Controller
         $tname = Thread::find($post->thread_id);
         // get thread name according to id
         $thread_name = $tname;
+        $comment = Comment::find($id);
         
-        return view('posts.show', compact('post', 'thread_name'));
+        return view('posts.show', compact('post', 'thread_name', 'comment'));
     }
 
     /**

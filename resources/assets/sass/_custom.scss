@@ -12,6 +12,42 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
+
+// customized
+#welcome-well{
+  background-image: url('/storage/cover_images/home_banner.jpg');
+  background-size: cover;
+  height: 100%;
+  color: white;
+  text-shadow: 2px 2px 8px #000;
+}
+
+#welcome-well h1{
+  color: white;
+  text-shadow: 2px 2px 8px #000;
+}
+
+#welcome-well h2{
+  color: white;
+  text-shadow: 2px 2px 8px #000;
+}
+
+#authBody body, html{
+  height: 100%;
+}
+
+#authBody{
+  background-image: url('/storage/cover_images/auth_bg.jpg');
+  /* Full height */
+  height: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+// end customized
+
 html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;

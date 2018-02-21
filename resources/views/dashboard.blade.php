@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-md-9 col-sm-9">
             <div class="panel panel-default">
-                <div class="panel-heading">Dashboard</div>
+                <div class="panel-heading">Account Activity</div>
 
                 <div class="panel-body">
                     @if (session('status'))
@@ -13,11 +13,7 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                    <h3>Your Bulletin Posts</h3>
-                    {{-- @foreach($posts as $post)
-                        {{ $post->body }}
-                        <br>
-                    @endforeach --}}
+                    <h3>Your eBulletin Posts</h3>
                     @if(count($posts) > 0)
                         <table class="table table-striped">
                             <tr>
@@ -49,9 +45,14 @@
                 <div class="thumbnail">
                     <img src="https://www.redditstatic.com/avatars/avatar_default_16_25B79F.png" />
                 </div>
-                <h4 class="text-center">{{ Auth::user()->username }}</h4>
+                <h3 class="text-center">{{ Auth::user()->username }}</h3>
+                <h4 class="text-center">{{ Auth::user()->name }}</h4>
                 <br>
             </div>
+            <p class="text-center"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> {{ Auth::user()->email }}</p>
+            <hr>
+            <p class="text-center"><b>eBulletin Birthday</b></p>
+            <p class="text-center"><span class="glyphicon glyphicon-gift" aria-hidden="true"> {{ Auth::user()->created_at->toFormattedDateString() }}</span></p>
         </div>
     </div>
 </div>

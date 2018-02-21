@@ -15,7 +15,7 @@ class Post extends Model
 
     public function threads()
     {
-        return $this->belongsTo('App\Thread');
+        return $this->belongsTo('App\Thread','thread_id');
     }
 
     public function comments()

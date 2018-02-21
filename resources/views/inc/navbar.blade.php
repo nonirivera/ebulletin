@@ -30,25 +30,20 @@
             </ul>
 
             {!! Form::open(['method'=>'GET','url'=>'threads','class'=>'navbar-form navbar-left','role'=>'search'])  !!}
-                <div class="form-group">
-                <input type="text" class="form-control" name="search" placeholder="Search for a Thread">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search thread" name="search">
+                    <span class="input-group-btn">
+                        <button class="btn btn-success" type="button"><span class=" glyphicon glyphicon-search"></span></button>
+                    </span>
                 </div>
-                <button type="submit" class="btn btn-primary">View Posts</button>
             {!! Form::close() !!}
 
             <!-- Right Side Of Navbar -->
             <ul class="nav navbar-nav navbar-right">
                 <!-- Authentication Links -->
                 @if (Auth::guest())
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                            My Account <span class="caret"></span>
-                        </a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li><a href="{{ route('login') }}">Login</a></li>
-                            <li><a href="{{ route('register') }}">Register</a></li>
-                        </ul>
-                    </li>
+                    <a href="{{ route('login') }}" class="btn btn-default btn-md">Log In</a>
+                    <a href="{{ route('register') }}" class="btn btn-info btn-md">Sign Up</a>
                 @else
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">

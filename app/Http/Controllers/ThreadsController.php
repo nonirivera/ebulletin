@@ -21,6 +21,11 @@ class ThreadsController extends Controller
         // $search = \Request::get('search');
         // $thread = Thread::where('name', 'like', '%' .$search. '%')->get();
         // return view('threads.index', compact('thread'));
+        $search = \Request::get('search');
+        if($search){
+            $thread = Thread::where('name', 'like', '%' .$search. '%')->get();
+            return view('threads.result', compact('thread'));
+        }
         $thread = Thread::paginate(10);
         return view('threads.index', compact('thread'));
     }
@@ -126,4 +131,5 @@ class ThreadsController extends Controller
     {
         //
     }
+
 }
