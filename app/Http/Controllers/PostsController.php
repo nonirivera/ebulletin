@@ -142,9 +142,5 @@ class PostsController extends Controller
         return redirect('/posts')->with('success', 'Post removed');
     }
 
-    public function huh($id)
-    {
-        echo $id;
-    }
 
 }

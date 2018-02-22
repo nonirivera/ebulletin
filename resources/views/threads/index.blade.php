@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="row">
-  <div class="col-md-7">
+  <div class="col-md-6">
     <div class="alert alert-info" role="alert">List of Threads</div>
       <div class="container">
       @if(count($thread) > 0)
@@ -22,11 +22,25 @@
       @endif
       </div>
   </div>
+  <div class="col-md-4">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Recently Created Threads</h3>
+      </div>
+      <div class="panel-body">
+        @foreach($recent as $r)
+          <h4><a href="threads/{{$r->id}}">{{$r->name}}</a></h4>
+          <small>{{$r->description }}</small>
+          <p></p>
+        @endforeach
+      </div>
+    </div>    
+  </div>
   <div class="col-md-2">
-    
-  </div>
-  <div class="col-md-3">
-    
-  </div>
+    <!-- placeholder access restriction for now -->
+    @if(Auth::user()->id === 1)
+      <a href="threads/create" class="btn btn-primary btn-lg btn-block">Create Thread</a>
+    @endif
+  </div>  
 </div>
 @endsection

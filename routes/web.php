@@ -41,4 +41,6 @@ Route::resource('comments', 'CommentsController');
 
 Auth::routes();
 
+Route::post('/users/send_message', 'UsersController@send_message');
+
 Route::get('/dashboard', 'DashboardController@index');

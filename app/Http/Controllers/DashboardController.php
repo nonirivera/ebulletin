@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Post;
 use App\User;
 use App\Thread;
+use App\Profile_message;
 use DB;
 
 class DashboardController extends Controller
@@ -30,6 +31,6 @@ class DashboardController extends Controller
         $user_id = auth()->user()->id;
         $user = User::find($user_id);
         #$posts = DB::select("SELECT * FROM posts WHERE user_id='$user_id'");     // raw sql
-        return view('dashboard')->with('posts', $user->posts);
+        return view('dashboard')->with('posts', $user->posts)->with('message', $user->message);
     }
 }

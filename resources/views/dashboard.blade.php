@@ -37,6 +37,21 @@
                     @else
                         <p>You currently have no posts</p>
                     @endif
+                    <h3>Your Visitor Messages</h3>
+                    @if(count($message) > 0)
+                        <table class="table table-striped">
+                            <tr>
+                                <th></th>
+                            </tr>
+                            @foreach($message as $message)
+                            <tr>
+                                <td>{{$message->message}}</td>
+                            </tr>
+                            @endforeach
+                        </table>
+                    @else
+                        <p>You currently have no visitor messages.</p>
+                    @endif
                 </div>
             </div>
         </div>

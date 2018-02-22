@@ -21,7 +21,7 @@
                     
                     <div class="list-group-item">
                         <a href="posts/{{$post->id}}"><h4 class="list-group-item-heading">{{ $post->title }}</h4></a>
-                        <p class="list-group-item-text"><small>Submitted by {{ $post->user->username }} on <a href="/threads/{{ $post->threads['id'] }}">{{ $post->threads['name'] }}</a> | {{$post->created_at->diffForHumans() }}</small></p>
+                        <p class="list-group-item-text"><small>Submitted by <a href="users/{{$post->user->id}}">{{ $post->user->username }}</a> on <a href="/threads/{{ $post->threads['id'] }}">{{ $post->threads['name'] }}</a> | {{$post->created_at->diffForHumans() }}</small></p>
                     </div>
                     
                     @endforeach

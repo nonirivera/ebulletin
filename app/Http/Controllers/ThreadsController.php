@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Thread;
 use App\Post;
+use Auth;
 use DB;
 
 class ThreadsController extends Controller
@@ -27,7 +28,8 @@ class ThreadsController extends Controller
             return view('threads.result', compact('thread'));
         }
         $thread = Thread::paginate(10);
-        return view('threads.index', compact('thread'));
+        $recent_thread = Thread::orderBy('created_at', 'desc')->take(5)->get();
+        return view('threads.index', compact('thread'))->with('recent', $recent_thread);
     }
 
     /**
@@ -37,7 +39,13 @@ class ThreadsController extends Controller
      */
     public function create()
     {
-        //
+       /**
+        *  Placeholder for now, only "oisenon" user can create thread
+        *   
+        */
+        if(Auth::user()->id !== 1){
+            return 'Access denied.';
+        }
         return view('threads.create');
     }
 

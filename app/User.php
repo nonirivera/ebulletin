@@ -35,4 +35,8 @@ class User extends Authenticatable
     {
         return $this->hasMany(Comment::class);
     }
+
+    public function message(){
+        return $this->hasMany(Profile_message::class);
+    }
 }
